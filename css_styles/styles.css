@@ -1,17 +1,114 @@
+:root {
+  --text-color: #444;
+  /* dark gray/black */
+  --main-color-dark: #2a241a;
+
+  /* Pizza: Medium Yellow */
+
+  --heading-2-color: #ce9518;
+  --heading-2-light: #ecc05d;
+  --heading-2-extra-light: #f3d28a;
+
+  /* Lynch*/
+  --heading-3-color: #70839e;
+
+  /* Wild Blue Yonder */
+  --accent-color: #819ab7;
+  --accent-color-light: #cbd8e7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  max-width: 50rem;
+  margin: 2em 0 0.5em;
+  font-family: "Libre Baskerville", serif;
+}
+
+h1 {
+  color: var(--main-color-dark);
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+h2,
+h3 {
+  color: var(--heading-2-color);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 50rem;
+  padding: 0 1rem;
+}
+
+figure {
+  margin: 4rem 0;
+}
+
+aside {
+  background-color: var(--accent-color-light);
+  text-align: center;
+  color: #444;
+  margin-top: 6rem;
+  padding: 3rem, 3rem;
+}
+
+aside h2 {
+  color: #444;
+  margin: 0;
+}
+
+footer {
+  background-color: var(--accent-color);
+  color: #444;
+  font-family: "Libre Baskerville", serif;
+  font-size: 2em;
+  margin-top: 8rem;
+  padding: 8rem 1rem 2rem;
+}
+
+footer p {
+  width: 50%;
+}
+
+picture img {
+  width: 100%;
+  height: 100%;
+}
+
 iframe {
   width: 368px;
   height: 207px;
 }
 
-/* picture img {
-  width: 100%;
-} */
-
-h1,
-h2,
-p {
-  max-width: 50rem;
-  margin: 0 auto;
+img {
+  width: 100px;
+  height: 100px;
 }
 
 a.button {
@@ -23,9 +120,19 @@ a.button {
   letter-spacing: 0.1px;
   border-bottom: 2px solid transparent;
   padding-bottom: 12px;
+  user-select: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:not([href]):hover {
+  text-decoration: none;
 }
 
 a:link {
+  color: var(--heading-3-color);
+  font-weight: bold;
   text-decoration: none;
   background-color: transparent;
 }
@@ -33,22 +140,42 @@ a:link {
 a:visited {
   color: black;
 }
-aside {
-  max-width: 60rem;
-  margin: 0 auto;
+
+a:active,
+a:focus {
+  background-color: var(--heading-2-light);
+  color: #444;
 }
 
 #SVG {
   text-align: left;
 }
 
+.button:hover {
+  background-color: var(--heading-2-extra-light);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+.button:active,
+.button:focus {
+  background-color: var(--heading-2-extra-light);
+  box-shadow: 0 0 0 2px var(--main-color-dark) inset;
+  color: var(--main-color-dark);
+}
+
+.form img {
+  width: 400px;
+}
 .rotate {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  background-color: transparent;
 }
 .rotate:hover {
   cursor: pointer;
+  background-color: transparent;
   animation: rotation 5s infinite linear;
 }
 
