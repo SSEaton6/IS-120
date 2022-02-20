@@ -80,7 +80,7 @@ header li {
   display: inline-block;
 }
 
-h1 {
+.main-h1 {
   color: var(--main-color-dark);
   font-size: 4rem;
   font-weight: 900;
@@ -96,6 +96,20 @@ h1 {
   padding: 0 2rem;
 
   transform: translate(-50%, -70%);
+}
+
+h1 {
+  color: var(--main-color-dark);
+  font-size: 4rem;
+  font-weight: 900;
+  top: 50%;
+  left: 50%;
+  color: #444;
+  text-shadow: 0 0 30px rgba(134, 134, 134, 0.7);
+  font-size: 3.5rem;
+  width: 100%;
+  text-align: center;
+  padding: 0 2rem;
 }
 
 article {
