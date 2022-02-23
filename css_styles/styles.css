@@ -21,15 +21,16 @@
   box-sizing: border-box;
 }
 
+picture {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
 body {
   color: var(--text-color);
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
-}
-
-picture {
-  display: block;
-  width: 100%;
 }
 
 .hero-image {
@@ -124,8 +125,9 @@ aside {
   background-color: var(--accent-color-light);
   text-align: center;
   color: #444;
-  margin-top: 6rem;
-  padding: 3rem, 3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0rem, 3rem;
 }
 .iframe {
   display: block;
@@ -136,13 +138,17 @@ figure {
   margin: 4rem 0;
 }
 
+.article-last {
+  margin-bottom: 0;
+}
+
 aside h2 {
   color: #444;
   margin: 0;
 }
 main {
   padding: 0rem;
-  margin: 0;
+  margin-bottom: 0;
 }
 footer {
   background-color: var(--accent-color);
@@ -154,7 +160,9 @@ footer {
 }
 
 footer p {
-  width: 50%;
+  margin: 0 auto;
+  font-family: "Libre Baskerville", serif;
+  max-width: fit-content;
 }
 
 iframe {
@@ -245,4 +253,156 @@ article {
 
 .first-article {
   margin-top: calc(100vh - 3.5rem);
+}
+
+/* CARDS AND CONTAINERS ADDED AFTER FEB 21 DUE DATE */
+
+.container {
+  position: relative;
+  width: 1300px;
+  padding-left: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .cards {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .cards:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  widows: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 20;
+  pointer-events: none;
+}
+.container .cards:nth-child(1) {
+  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
+}
+.container .cards:nth-child(1) .overlay {
+  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
+}
+
+.container .cards:nth-child(2) {
+  background: linear-gradient(45deg, #ce9518, #f3d28a);
+}
+.container .cards:nth-child(2) .overlay {
+  background: linear-gradient(45deg, #ce9518, #f3d28a);
+}
+
+.container .cards:nth-child(3) {
+  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
+}
+.container .cards:nth-child(3) .overlay {
+  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
+}
+
+.container .cards:nth-child(4) {
+  background: linear-gradient(45deg, #ce9518, #f3d28a);
+}
+.container .cards:nth-child(4) .overlay {
+  background: linear-gradient(45deg, #ce9518, #f3d28a);
+}
+.container .cards .imgBx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.container .cards .imgBx h2 {
+  margin: 10px 0 0;
+  padding: 0;
+  color: #444;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.container .cards .overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  height: 50px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border-radius: 100;
+  transition: 0.5s;
+}
+.container .cards .overlay:hover {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+  opacity: 1;
+  border-radius: 0;
+}
+.container .cards .overlay:before {
+  content: "Hover to Read";
+  font-family: "Libre Baskerville", serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-delay: 0.5s;
+}
+.container .cards .overlay:hover:before {
+  display: none;
+  transition-delay: 0s;
+}
+.container .cards .content {
+  padding: 20px;
+  width: 280px;
+  height: 380px;
+  box-sizing: border-box;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0s;
+  color: #fff;
+}
+.container .cards .overlay:hover ~ .content {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.2s;
+  transition-delay: 0.5s;
+}
+.container .cards .content h2 {
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  font-size: 28px;
+  margin: 0;
+  padding: 5px 0;
+}
+.container .cards .content p {
+  margin: 0;
+  text-align: center;
+  padding: 50px 0 5px 0;
+  font-size: 16px;
 }
