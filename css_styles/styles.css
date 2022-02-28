@@ -467,12 +467,20 @@ article {
   background: #000;
 }
 
+.form h1 {
+  padding-top: 10rem;
+}
+
+.examples h1 {
+  padding-top: 10rem;
+}
+
 #loader {
   position: absolute;
   width: 600px;
   height: 36px;
   left: 50%;
-  top: 40%;
+  top: 50%;
   margin-left: -300px;
   overflow: visible;
   -webkit-user-select: none;
