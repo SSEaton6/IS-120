@@ -291,6 +291,10 @@ a:focus {
   animation: rotation 5s infinite linear;
 }
 
+.button_container {
+  display: flex;
+  justify-content: space-evenly;
+}
 @keyframes rotation {
   from {
     transform: rotateY(0deg);
