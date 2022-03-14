@@ -22,6 +22,8 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   color: var(--text-color);
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
@@ -59,11 +61,6 @@ h3 {
   font-family: "Libre Baskerville", serif;
 }
 
-/* p,
-dt,
-dd {
-  padding: 0 2rem 1rem;
-} */
 article {
   display: flex;
   flex-direction: column;
@@ -130,6 +127,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 2;
 }
 
 header li {
@@ -250,7 +248,7 @@ a:link {
 }
 
 a:visited {
-  color: black;
+  color: var(--heading-3-color);
 }
 
 a:active,
@@ -316,11 +314,167 @@ article {
 
 .cards {
   display: flex;
-  /* flex-direction: row; */
-  width: 100%;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem, 1rem;
 }
-.container {
+
+.cards svg {
+  width: clamp(50px, 30%, 90px);
+  height: auto;
+
+  stroke: #eee;
+  stroke-width: 2;
+
+  transition: stroke 300ms;
+}
+
+.cards .card:hover svg {
+  stroke: #444;
+}
+.cards .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 8rem 0.5rem 2rem;
+}
+
+.cards .card:nth-of-type(odd) {
+  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
+}
+
+.cards .card:nth-of-type(even) {
+  background: linear-gradient(45deg, #ce9518, #f3d28a);
+}
+
+/* adds a very translucent white overlay to half the card. It was missing "width" in the original so it wasn't showing up - "width" was misspelled  */
+/* .cards .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1); */
+
+/* I lowered the z-index from 20 to 1   */
+
+/* this allows mouse events like click and hover to pass through this element. Without it, only the right half of the button can be hovered over  */
+/*   pointer-events: none;
+} */
+
+/* this is the heading visible on the card default state (no hover) */
+.cards h2 {
+  color: #444;
+  margin: 2rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  /* text-align: center; */
+  text-transform: uppercase;
+
+  /*  this is needed to move it on top of the ::before overlay if used */
+  /*   z-index: 2; */
+}
+
+.cards .hover-button {
+  align-self: stretch;
+
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+
+  padding: 1rem;
+  margin: 0 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  /*  this is needed to move it on top of the ::before overlay if used  */
+  /*   z-index: 2; */
+}
+
+.cards .hover-button span {
+  font-family: Roboto;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.cards .card:nth-of-type(odd) .hover-button {
+  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
+}
+
+.cards .card:nth-of-type(even) .hover-button {
+  background: linear-gradient(45deg, #ce9518, #f3d28a);
+}
+
+/* the overlay in the "contracted" position using scale(0) */
+.cards .overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+
+  padding: 2rem 1rem;
+
+  transform: scale(0);
+
+  /* allow the overlay to display over the ::before that lightens the left half of the card, if used   */
+  /*   z-index: 2; */
+
+  transition: transform 200ms;
+
+  /* attempt to make it appear that it's expanding out of the hover-button   */
+  transform-origin: 50% 90%;
+}
+
+.cards .card:nth-of-type(odd) .overlay {
+  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
+}
+
+.cards .card:nth-of-type(even) .overlay {
+  background: linear-gradient(45deg, #ce9518, #f3d28a);
+}
+
+.cards .hover-button:hover .overlay {
+  transform: scale(1);
+  transition: transform 400ms;
+}
+
+.cards .content {
+  opacity: 0;
+
+  /* delay 400ms before taking 200ms to appear  */
+  transition: opacity 200ms 500ms;
+}
+
+.cards .hover-button:hover .content {
+  opacity: 1;
+}
+
+.cards .overlay h2 {
+  font-family: "Libre Baskerville", serif;
+  color: #fff;
+  text-transform: none;
+
+  font-weight: 200;
+
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0;
+}
+
+.cards .overlay p {
+  color: #fff;
+  margin: 1rem 0.75rem 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* .container {
   position: relative;
   width: 100vw;
   padding-left: 30px;
@@ -423,13 +577,7 @@ article {
   border-radius: 0;
 }
 .container .cards .overlay:before {
-  content: "Hover to Read";
-  font-family: "Libre Baskerville", serif;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  
   color: #fff;
   font-size: 12px;
   text-transform: uppercase;
@@ -440,10 +588,7 @@ article {
   align-items: center;
   transition-delay: 0.5s;
 }
-.container .cards .overlay:hover:before {
-  display: none;
-  transition-delay: 0s;
-}
+
 .container .cards .content {
   padding: 20px;
   width: 280px;
@@ -456,12 +601,7 @@ article {
   transition: 0s;
   color: #fff;
 }
-.container .cards .overlay:hover ~ .content {
-  opacity: 1;
-  visibility: visible;
-  transition: 0.2s;
-  transition-delay: 0.5s;
-}
+
 .container .cards .content h2 {
   text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.45);
   text-align: center;
@@ -474,7 +614,7 @@ article {
   text-align: center;
   padding: 50px 0 5px 0;
   font-size: 16px;
-}
+} */
 
 .form body {
   background: #000;
@@ -488,7 +628,7 @@ article {
   padding-top: 10rem;
 }
 
-#loader {
+.examples #loader {
   position: absolute;
   width: 600px;
   height: 36px;
@@ -501,6 +641,11 @@ article {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
+}
+
+.examples .button:hover {
+  background-color: transparent;
+  box-shadow: none;
 }
 
 #loader div {
@@ -665,4 +810,21 @@ article {
 
 .container .cards .content h2 {
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 500px) {
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .cards .card {
+    flex: 1 1 40%;
+  }
+}
+
+@media (min-width: 850px) {
+  .cards {
+    flex-wrap: nowrap;
+  }
 }

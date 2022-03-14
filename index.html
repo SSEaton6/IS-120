@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="My first IS 120 web page">
-  <title>Sidney's First Web Page IS 201</title>
+  <title>Sidney's First Web Page IS 120</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -37,11 +37,13 @@
   </picture> -->
   <header>
     <nav>
-      <a>Main</a>
-      <a href="about/">About </a>
-      <a href="examples/">Examples </a>
-      <a href="#">Lawsuits</a>
-      <a href="form/">Form </a>
+      <ul>
+        <li><a href="#">Main</a></li>
+        <li><a href="/about/">About </a></li>
+        <li><a href="/examples/">Examples</a></li>
+        <li><a href="#">Lawsuits</a></li>
+        <li><a href="/form/">Form </a></li>
+      </ul>
     </nav>
   </header>
 
@@ -186,22 +188,13 @@
 
     <!-- CARDS AND CSS FOR THEM WAS ADDED AFTER FEB 21 DUE DATE -->
     <div class="cards">
-      <div class="card-div">
-        <div class="container">
-          <div class="cards">
-            <div class="imgBx">
-              <div>
-                <svg viewbox="0 0 24 24" width="50" height="50" stroke="white" stroke-width="2" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                  <path
-                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
-                  </path>
-                </svg>
-                <h2>Did You Know?</h2>
-              </div>
-            </div>
-            <div class="overlay"></div>
+      <div class="card">
+        <svg>
+          <use href="#headphones" />
+        </svg>
+        <h2>Did You Know?</h2>
+        <div class="hover-button"><span>Hover to Read</span>
+          <div class="overlay">
             <div class="content">
               <h2>Fun Example</h2>
               <p>Did you know that Men at Work were sued over their song "Down Under"? The music company, Larrikin
@@ -210,65 +203,49 @@
                 eventually ended up with 5% of the song's profit from 2002 onwards. </p>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="cards">
-            <div class="imgBx">
-              <div>
-                <svg viewbox="0 0 24 24" width="50" height="50" stroke="white" stroke-width="2" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                  <path
-                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
-                  </path>
-                </svg>
-                <h2>Did You Know?</h2>
-              </div>
-            </div>
-            <div class="overlay"></div>
+      <div class="card">
+        <svg>
+          <use href="#headphones" />
+        </svg>
+        <h2>Did You Know?</h2>
+        <div class="hover-button"><span>Hover to Read</span>
+          <div class="overlay">
             <div class="content">
               <h2>Fun Example</h2>
               <p>Did you know that Gym Class Heroes' song "Cupid's Chokehold" samples Supertramp's "Breakfast in
-                America?"
-                After initial conversations with the band, founder of Supertramp, Roger Hodgson doesn't seem to have any
-                problems with it. </p>
+                America?" After initial conversations with the band, founder of Supertramp, Roger Hodgson doesn't seem
+                to have any problems with it.</p>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="cards">
-            <div class="imgBx">
-              <div>
-                <svg viewbox="0 0 24 24" width="50" height="50" stroke="white" stroke-width="2" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                  <path
-                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
-                  </path>
-                </svg>
-                <h2>Did You Know?</h2>
-              </div>
-            </div>
-            <div class="overlay"></div>
+      <div class="card">
+        <svg>
+          <use href="#headphones" />
+        </svg>
+        <h2>Did You Know?</h2>
+        <div class="hover-button"><span>Hover to Read</span>
+          <div class="overlay">
             <div class="content">
               <h2>Fun Example</h2>
               <p>Did you know that Simon Curtis' song "Beat Drop" heavily samples the popular Mozart aria "The Queen of
                 Night Aria?" I think it's a pretty cool song, just watch out for swearing</p>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="cards">
-            <div class="imgBx">
-              <div>
-                <svg viewbox="0 0 24 24" width="50" height="50" stroke="white" stroke-width="2" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                  <path
-                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
-                  </path>
-                </svg>
-                <h2>Did You Know?</h2>
-              </div>
-            </div>
-            <div class="overlay"></div>
+      <div class="card">
+        <svg>
+          <use href="#headphones" />
+        </svg>
+        <h2>Did You Know?</h2>
+        <div class="hover-button"><span>Hover to Read</span>
+          <div class="overlay">
             <div class="content">
               <h2>Fun Example</h2>
               <p>Did you know that Fall Out Boy's song "Uma Thurman" samples the Munsters' opening theme? The band
@@ -279,6 +256,7 @@
         </div>
       </div>
     </div>
+
   </main>
 
   <footer>
@@ -286,6 +264,14 @@
       <p>Music has been around so long, is it any wonder so much of it is similar?</p>
     </div>
   </footer>
+  <svg>
+    <symbol id="headphones" fill="none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24"
+      preserveaspectratio="xMidYMid meet" x="0" y="0">
+      <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+      <path
+        d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+    </symbol>
+  </svg>
 </body>
 
 </html>
