@@ -27,15 +27,15 @@
 </head>
 
 <body>
-  <!-- <picture class="hero-image">
-    <source srcset="images/yellow-crowd-1600-width.jpg" media="(max-width: 1600px)">
-    <source srcset="\images\NEW-1300px-Crowd.jpg" media="(min-width: 901px)">
-    <source srcset="images/yellow-crowd-900-width.jpg" media="(min-width: 501px)">
-    <source srcset="images/yellow-crowd-500-width.jpg" media="(max-width: 500px)">
+  <div class="main-menu">
+    <div class="menu-icon">
+      <svg viewbox="0 0 60 60" width="60px" height="60px">
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+      </svg>
+    </div>
 
-    <img src="images/yellow-crowd-1600-width.jpg" alt="Crowd at a concert">
-  </picture> -->
-  <header>
+
     <nav>
       <ul>
         <li><a href="#">Main</a></li>
@@ -45,9 +45,7 @@
         <li><a href="/form/">Form </a></li>
       </ul>
     </nav>
-  </header>
-
-
+  </div>
   <main>
     <h1 class="bg-image bg-1 bg-full-height">Originality in Music</h1>
     <article>
@@ -141,9 +139,10 @@
         </dl>
       </div>
     </article>
-    <aside>
+    <aside class="aside">
       <article>
-        <div class="inner-article">
+        <!-- <div class="inner-article"> -->
+        <div>
           <h2>Parodies</h2>
           <p>
             <a href="https://dodgelegal.com/general/parody/">Dodge Legal Group's Website</a>
@@ -264,7 +263,14 @@
       <p>Music has been around so long, is it any wonder so much of it is similar?</p>
     </div>
   </footer>
-  <svg>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".main-menu").classList.toggle("menu-show");
+      });
+    });
+  </script>
+  <svg class="headphones-svg">
     <symbol id="headphones" fill="none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24"
       preserveaspectratio="xMidYMid meet" x="0" y="0">
       <path d="M3 18v-6a9 9 0 0 1 18 0v6" />

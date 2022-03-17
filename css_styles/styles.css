@@ -38,26 +38,16 @@ img {
 h1 {
   color: var(--main-color-dark);
   font-weight: 200;
-  /* margin: 0 auto;
-  max-width: 50rem; */
   font-family: "Libre Baskerville", serif;
 }
 
 h2 {
   color: var(--heading-2-color);
-  /* font-size: 2.5rem;
-  padding: 2rem 2rem;
-  text-align: center; */
   font-weight: 200;
 }
 h3 {
   color: var(--heading-3-color);
-  /* font-size: 2rem; */
   font-weight: 200;
-  /* padding: 2rem 2rem;
-  line-height: 1.2;
-  max-width: 50rem;
-  margin: 2em 0 0.5em; */
   font-family: "Libre Baskerville", serif;
 }
 
@@ -71,6 +61,10 @@ article {
 
 .inner-article {
   max-width: 50rem;
+}
+.inner-article h2 {
+  text-align: center;
+  font-size: 3rem;
 }
 
 .bg-image {
@@ -109,29 +103,102 @@ h1.bg-image {
   align-items: center;
   justify-content: center;
   margin: 0;
-  /* clamp(min size, scaling size, max size) */
   font-size: clamp(2.1rem, 8vw, 5.6rem);
   line-height: 1;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
   padding: 0 1rem 1em;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(to bottom, #000, transparent);
-  color: #fff;
-  padding: 20px 2rem 40px;
-  font-size: 20px;
+.main-menu .menu-icon {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 1.5rem;
+  left: 1.5rem;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
   z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header li {
-  display: inline-block;
+.main-menu svg {
+  stroke: #444;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  padding: 12px;
+}
+
+.main-menu svg line {
+  transform-origin: center;
+  transition: transform 200ms ease;
+}
+
+.main-menu svg line:first-child {
+  transform: translateY(8px);
+}
+
+.main-menu svg line:last-child {
+  transform: translateY(-8px);
+}
+
+.menu-show .menu-icon {
+  background-color: transparent;
+}
+
+.menu-show svg line {
+  stroke: #444;
+  stroke-width: 5px;
+}
+
+.menu-show svg line:first-child {
+  transform: rotate(135deg);
+}
+
+.menu-show svg line:last-child {
+  transform: rotate(-135deg);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  background-color: black;
+  transform: translateX(-100vw);
+  transition: transform 400ms;
+  z-index: 1;
+}
+
+.menu-show nav {
+  transform: translateX(0);
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 80rem;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+
+nav a:not([href]) {
+  color: var(--main-color-dark);
+}
+
+nav a[href]:hover {
+  color: var(--heading-2-light);
 }
 
 .main-h1 {
@@ -180,14 +247,21 @@ iframe {
   height: 207px;
 }
 
-/* aside {
+aside article {
   background-color: var(--accent-color-light);
+  margin-bottom: 1rem;
+}
+aside {
   text-align: center;
   color: #444;
   margin-top: 0;
   margin-bottom: 0;
   padding: 0rem, 3rem;
-} */
+}
+
+aside p {
+  max-width: 80rem;
+}
 
 /* figure {
   margin: 4rem 0;
@@ -241,19 +315,19 @@ a:not([href]):hover {
 }
 
 a:link {
-  color: var(--heading-3-color);
+  color: var(--text-color);
   font-weight: bold;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:visited {
-  color: var(--heading-3-color);
+  color: var(--text-color);
 }
 
 a:active,
 a:focus {
-  background-color: var(--heading-2-light);
+  background-color: transparent;
   color: #444;
 }
 
@@ -262,9 +336,10 @@ a:focus {
 }
 
 .button:hover {
-  background-color: var(--heading-2-extra-light);
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3);
+  background-color: var(transparent);
+  /* box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3); */
   text-decoration: none;
+  color: var(--heading-3-color);
 }
 
 .button:active,
@@ -310,8 +385,6 @@ article {
   margin-top: calc(100vh - 3.5rem);
 }
 
-/* CARDS AND CONTAINERS ADDED AFTER FEB 21 DUE DATE */
-
 .cards {
   display: flex;
   flex-direction: column;
@@ -349,34 +422,13 @@ article {
   background: linear-gradient(45deg, #ce9518, #f3d28a);
 }
 
-/* adds a very translucent white overlay to half the card. It was missing "width" in the original so it wasn't showing up - "width" was misspelled  */
-/* .cards .card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1); */
-
-/* I lowered the z-index from 20 to 1   */
-
-/* this allows mouse events like click and hover to pass through this element. Without it, only the right half of the button can be hovered over  */
-/*   pointer-events: none;
-} */
-
-/* this is the heading visible on the card default state (no hover) */
 .cards h2 {
   color: #444;
   margin: 2rem 0;
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 2px;
-  /* text-align: center; */
   text-transform: uppercase;
-
-  /*  this is needed to move it on top of the ::before overlay if used */
-  /*   z-index: 2; */
 }
 
 .cards .hover-button {
@@ -389,9 +441,6 @@ article {
   padding: 1rem;
   margin: 0 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
-  /*  this is needed to move it on top of the ::before overlay if used  */
-  /*   z-index: 2; */
 }
 
 .cards .hover-button span {
@@ -410,7 +459,6 @@ article {
   background: linear-gradient(45deg, #ce9518, #f3d28a);
 }
 
-/* the overlay in the "contracted" position using scale(0) */
 .cards .overlay {
   position: absolute;
   left: 0;
@@ -419,15 +467,8 @@ article {
   right: 0;
 
   padding: 2rem 1rem;
-
   transform: scale(0);
-
-  /* allow the overlay to display over the ::before that lightens the left half of the card, if used   */
-  /*   z-index: 2; */
-
   transition: transform 200ms;
-
-  /* attempt to make it appear that it's expanding out of the hover-button   */
   transform-origin: 50% 90%;
 }
 
@@ -446,8 +487,6 @@ article {
 
 .cards .content {
   opacity: 0;
-
-  /* delay 400ms before taking 200ms to appear  */
   transition: opacity 200ms 500ms;
 }
 
@@ -459,162 +498,19 @@ article {
   font-family: "Libre Baskerville", serif;
   color: #fff;
   text-transform: none;
-
   font-weight: 200;
-
   font-size: 1.5rem;
   line-height: 1;
   margin: 0;
 }
 
 .cards .overlay p {
-  color: #fff;
-  margin: 1rem 0.75rem 0;
+  color: #444;
+  margin: 1rem 1rem;
+  padding-top: 1rem;
   line-height: 1.2;
   text-align: center;
 }
-
-/* .container {
-  position: relative;
-  width: 100vw;
-  padding-left: 30px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-right: 40px;
-  display: block;
-  justify-content: center;
-}
-.card-div {
-  overflow: hidden;
-}
-.container .cards {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  background: #000;
-  display: inline-flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 10px;
-}
-
-.container .cards:before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  widows: 50%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: 20;
-  pointer-events: none;
-}
-.container .cards:nth-child(1) {
-  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
-}
-.container .cards:nth-child(1) .overlay {
-  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
-}
-
-.container .cards:nth-child(2) {
-  background: linear-gradient(45deg, #ce9518, #f3d28a);
-}
-.container .cards:nth-child(2) .overlay {
-  background: linear-gradient(45deg, #ce9518, #f3d28a);
-}
-
-.container .cards:nth-child(3) {
-  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
-}
-.container .cards:nth-child(3) .overlay {
-  background: linear-gradient(45deg, #5b6a80, #a1c1e6);
-}
-
-.container .cards:nth-child(4) {
-  background: linear-gradient(45deg, #ce9518, #f3d28a);
-}
-.container .cards:nth-child(4) .overlay {
-  background: linear-gradient(45deg, #ce9518, #f3d28a);
-}
-.container .cards .imgBx {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.container .cards .imgBx h2 {
-  margin: 10px 0 0;
-  padding: 0;
-  color: #444;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.container .cards .overlay {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 250px;
-  height: 50px;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  border-radius: 100;
-  transition: 0.5s;
-}
-.container .cards .overlay:hover {
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: none;
-  opacity: 1;
-  border-radius: 0;
-}
-.container .cards .overlay:before {
-  
-  color: #fff;
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition-delay: 0.5s;
-}
-
-.container .cards .content {
-  padding: 20px;
-  width: 280px;
-  height: 380px;
-  box-sizing: border-box;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0s;
-  color: #fff;
-}
-
-.container .cards .content h2 {
-  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.45);
-  text-align: center;
-  font-size: 28px;
-  margin: 0;
-  padding: 5px 0;
-}
-.container .cards .content p {
-  margin: 0;
-  text-align: center;
-  padding: 50px 0 5px 0;
-  font-size: 16px;
-} */
 
 .form body {
   background: #000;
@@ -625,10 +521,10 @@ article {
 }
 
 .examples h1 {
-  padding-top: 10rem;
+  padding-top: 2rem;
 }
 
-.examples #loader {
+/* #loader {
   position: absolute;
   width: 600px;
   height: 36px;
@@ -641,7 +537,7 @@ article {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-}
+} */
 
 .examples .button:hover {
   background-color: transparent;
@@ -826,5 +722,92 @@ article {
 @media (min-width: 850px) {
   .cards {
     flex-wrap: nowrap;
+    margin-bottom: 3rem;
   }
+}
+
+@media (min-width: 601px) {
+  /* .panel {
+    flex-direction: row;
+  }
+
+  .panel .text-wrapper {
+    flex: 1 1 60%;
+  }
+
+  .panel .image-wrapper {
+    flex: 1 1 40%;
+  }
+
+  .panel h2 {
+    margin-top: 0;
+  } */
+
+  .main-menu .menu-icon {
+    display: none;
+  }
+  /* COPIED NAV CSS */
+  .hero {
+    margin-bottom: 0;
+  }
+
+  nav {
+    position: static;
+    display: block;
+    background-color: transparent;
+    margin: 2rem 1rem 2rem;
+    transform: none;
+    transition: none;
+  }
+  nav ul {
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 0 auto;
+
+    max-width: 60rem;
+  }
+
+  nav a {
+    display: block;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+
+    color: var(--accent-color);
+  }
+
+  nav a:not([href]) {
+    color: var(--accent-color);
+  }
+
+  nav a::after {
+    content: "";
+    display: block;
+    width: calc(100% + 12px);
+    height: 3px;
+    margin-left: -6px;
+    margin-top: 6px;
+    background-color: var(--heading-2-light);
+    transform: scale(0);
+    transition: transform 200ms ease-in, color 300ms ease-in;
+    transform-origin: right;
+  }
+
+  nav a[href]:hover {
+    color: var(--heading-2-light);
+  }
+
+  nav a[href]:hover::after {
+    transform: scale(1);
+    transform-origin: left;
+  }
+}
+.main-menu {
+  max-height: 8rem;
+  /* background-color: var(--heading-3-color); */
+  background-color: var(--heading-3-color);
+}
+
+.headphones-svg {
+  display: none;
 }
