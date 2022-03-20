@@ -109,6 +109,11 @@ h1.bg-image {
   padding: 0 1rem 1em;
 }
 
+.fix_size h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 35px;
+}
 .main-menu .menu-icon {
   position: fixed;
   top: 1.5rem;
@@ -284,7 +289,7 @@ footer {
   color: #444;
   font-family: "Libre Baskerville", serif;
   font-size: 2em;
-  margin-top: 0;
+  margin-top: 1rem;
   padding: 3rem 1rem;
 }
 
@@ -708,6 +713,22 @@ article {
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
 }
 
+.panel {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.panel .button {
+  margin-top: 1rem;
+}
+
 @media (min-width: 500px) {
   .cards {
     flex-direction: row;
@@ -717,6 +738,12 @@ article {
   .cards .card {
     flex: 1 1 40%;
   }
+
+  .fix_size h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 45px;
+  }
 }
 
 @media (min-width: 850px) {
@@ -724,10 +751,16 @@ article {
     flex-wrap: nowrap;
     margin-bottom: 3rem;
   }
+
+  .fix_size h2 {
+    margin-top: 0 auto;
+    margin-bottom: 0 auto;
+    font-size: 3rem;
+  }
 }
 
 @media (min-width: 601px) {
-  /* .panel {
+  .panel {
     flex-direction: row;
   }
 
@@ -741,8 +774,10 @@ article {
 
   .panel h2 {
     margin-top: 0;
-  } */
-
+  }
+  .panel .left {
+    order: -1;
+  }
   .main-menu .menu-icon {
     display: none;
   }
