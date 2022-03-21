@@ -729,6 +729,10 @@ article {
   margin-top: 1rem;
 }
 
+.examples p {
+  max-width: 60rem;
+}
+
 @media (min-width: 500px) {
   .cards {
     flex-direction: row;
