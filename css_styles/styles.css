@@ -372,6 +372,7 @@ a:focus {
 .button_container {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 @keyframes rotation {
   from {
