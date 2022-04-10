@@ -36,8 +36,6 @@
         <line x1="5%" y1="50%" x2="95%" y2="50%" />
       </svg>
     </div>
-
-
     <nav>
       <ul>
         <li><a href="../index.html">Main</a></li>
@@ -50,7 +48,7 @@
   </div>
   <main>
     <h1>Form</h1>
-
+    <!-- 
     <div id="loader" class="loader">
       <div>L</div>
       <div>O</div>
@@ -59,11 +57,71 @@
       <div>I</div>
       <div>N</div>
       <div>G</div>
-    </div>
-    <article class="inner-article">
-      <h3>Microphone SVG</h3>
+    </div> -->
+
+    <section>
       <img src="../images/mic.svg" alt="microphone svg">
-    </article>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="email">Email address:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="phone">Phone number:</label>
+        <input type="tel" name="phone" id="phone">
+
+        <label for="band">Your favorite band:</label>
+        <input type="band" name="band" id="band" required>
+
+
+        <fieldset>
+          <legend>Do you play any instruments? (Check all that apply)</legend>
+
+          <input type="checkbox" id="Piano" name="Instruments" value="Piano">
+          <label for="Piano">Piano</label>
+
+          <input type="checkbox" id="concertina" name="Instruments" value="concertina">
+          <label for="concertina">Concertina</label>
+
+          <input type="checkbox" id="cowbell" name="Instruments" value="cowbell">
+          <label for="cowbell">Cow Bell</label>
+
+          <input type="checkbox" id="guiro" name="Instruments" value="guiro">
+          <label for="guiro">Guiro</label>
+
+          <input type="checkbox" id="triangle" name="Instruments" value="triangle">
+          <label for="triangle">Triangle</label>
+
+          <input type="checkbox" id="synthesizer" name="Instruments" value="synthesizer">
+          <label for="synthesizer">Synthesizer</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Best Music Genre</legend>
+
+          <input type="radio" name="genre" id="rock" value="rock">
+          <label for="rock">Rock</label>
+
+          <input type="radio" name="genre" id="pop" value="pop">
+          <label for="pop">Pop</label>
+
+          <input type="radio" name="genre" id="alternative" value="alternative">
+          <label for="alternative">Alternative</label>
+
+          <input type="radio" name="genre" id="elvis" value="elvis">
+          <label for="elvis">Elvis</label>
+        </fieldset>
+
+
+        <label for="explanation">Tell me about your favorite band and your favorite song from them:</label>
+        <textarea name="explanation" id="explanation" rows="20"
+          placeholder="Franki Valli and the Four Seasons and their song 'Grease' is my favorite because..."></textarea>
+
+        <button type="submit">Submit Now</button>
+
+      </form>
+    </section>
   </main>
   <script>
     window.addEventListener("DOMContentLoaded", () => {
