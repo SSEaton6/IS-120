@@ -519,8 +519,12 @@ article {
   text-align: center;
 }
 
-.form body {
-  background: #000;
+.form {
+  align-items: center;
+}
+
+.form .main-menu {
+  align-self: stretch;
 }
 
 .form h1 {
