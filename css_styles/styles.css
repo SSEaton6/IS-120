@@ -531,6 +531,10 @@ article {
   padding-top: 2rem;
 }
 
+.examples main h3 {
+  text-align: center;
+}
+
 /* #loader {
   position: absolute;
   width: 600px;
