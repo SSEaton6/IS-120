@@ -942,6 +942,12 @@ input[type="radio"]:checked::after {
   background-color: var(--accent-color-light);
 }
 
+.examples .center-this {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 500px) {
   .form section {
     max-width: 40rem;
