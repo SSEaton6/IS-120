@@ -16,6 +16,9 @@
   --accent-color: #819ab7;
   --accent-color-light: #cbd8e7;
   --checkbox-size: 24px;
+
+  /* CURTAIN */
+  --minh: 98vh;
 }
 
 * {
@@ -912,15 +915,59 @@ input[type="radio"]:checked::after {
   max-width: 300px;
 }
 
+/* CURTAIN */
+.cool .curtain {
+  /** create the "split" background **/
+  background-image: linear-gradient(
+    to bottom,
+    var(--accent-color-light) 50%,
+    var(--heading-2-color) 50%
+  );
+}
+.cool .invert {
+  /** make the content sticky **/
+  position: sticky;
+  top: 20px;
+
+  /** blend the content with the contrast effect **/
+  mix-blend-mode: difference;
+
+  /** center the content **/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /** set the minimum height of the section **/
+  min-height: var(--minh);
+}
+
+.cool h2 {
+  /** set the color of the text **/
+  color: white;
+  font-size: 40px;
+}
+
+/** add extra space to the bottom (need this for the "sticky" effect) **/
+.cool .curtain::after {
+  content: "";
+  display: block;
+  min-height: var(--minh);
+}
+
+.cool .fun {
+  background-color: var(--accent-color-light);
+}
+
 @media (min-width: 500px) {
   .form section {
     max-width: 40rem;
     align-self: center;
   }
 
-  /* .form img {
-    align-self: center;
-  } */
+  .cool .fun h3 {
+    color: darkblue;
+    font-size: 25px;
+  }
 
   .form form {
     grid-template-columns: max-content 1fr;
